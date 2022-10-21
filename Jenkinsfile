@@ -11,14 +11,14 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "========executing Build stage========"
+                echo "========Suba - executing Build stage========"
                 sh 'mvn -B -DskipTests clean package'
             }
         }
 
         stage("Test"){
             steps{
-                echo "====++++executing Test++++===="
+                echo "====Suba - ++++executing Test++++===="
                 sh "mvn test"
             }
             post{
@@ -26,7 +26,7 @@ pipeline{
                     junit "target/surefire-reports/*.xml"
                 }
                 success{
-                    echo "====++++Test executed successfully++++===="
+                    echo "====Suba - ++++Test executed successfully++++===="
                 }
                 failure{
                     echo "====++++Test execution failed++++===="
@@ -37,7 +37,7 @@ pipeline{
 
         stage("Deploy"){
             steps{
-                echo "====++++executing Deploy++++===="
+                echo "====Suba - ++++executing Deploy++++===="
                 sh './jenkins/scripts/deliver.sh'
             }
             post{
@@ -45,10 +45,10 @@ pipeline{
                     echo "====++++always++++===="
                 }
                 success{
-                    echo "====++++Deploy executed successfully++++===="
+                    echo "====Suba - ++++Deploy executed successfully++++===="
                 }
                 failure{
-                    echo "====++++Deploy execution failed++++===="
+                    echo "====Suba - ++++Deploy execution failed++++===="
                 }
         
             }
