@@ -37,7 +37,7 @@ pipeline{
 
         stage("Deploy"){
             steps{
-                echo "====Suba - ++++executing Deploy++++===="
+                echo "====Suba - ++++executing Deploy++++suba===="
                 sh './jenkins/scripts/deliver.sh'
             }
             post{
